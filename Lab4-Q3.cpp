@@ -7,6 +7,7 @@ Factorial of 5 is: 120
 */
 
 #include<iostream>
+#include<limits>
 
 using namespace std;
 
@@ -14,8 +15,24 @@ int main()
 {
 	int num , factorial=1;
 	
-	cout<<"Enter an integer to calculate its factorial: ";
-	cin>>num;
+	do
+	{
+		cout<<"Enter an integer: ";
+		cin>>num;
+		
+		if(cin.fail())
+		{
+			cout<<"Invalid \aInput"<<endl<<endl;
+			cin.clear();
+			cin.ignore(numeric_limits<streamsize>::max(), '\n');
+			
+			continue;
+		}
+		
+		else
+		break;
+	}while(true);
+	
 	
 	for(int i=1 ; i<=num ; i++)
 	{
