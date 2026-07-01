@@ -9,6 +9,7 @@ Enter any value: 10
 */
 
 #include<iostream>
+#include<limits>
 
 using namespace std;
 
@@ -16,8 +17,24 @@ int main()
 {
 	int num , sum=0 , i=1;
 	
-	cout<<"Enter an integer: ";
-	cin>>num;
+	do
+	{
+		cout<<"Enter an integer: ";
+		cin>>num;
+		
+		if(cin.fail())
+		{
+			cout<<"Invalid \aInput"<<endl<<endl;
+			cin.clear();
+			cin.ignore(numeric_limits<streamsize>::max(), '\n');
+			
+			continue;
+		}
+		
+		else
+		break;
+	}while(true);
+	
 	
 	do
 	{
