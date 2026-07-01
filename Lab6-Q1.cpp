@@ -14,13 +14,15 @@ Area of this square is 25 sq.cms
 
 #include<iostream>
 #include<iomanip>
+#include<cstdlib>
+#include<limits>
 #include<conio.h>
 
 using namespace std;
 
 float circleArea(float r)
 {
-	return 3.14*r*r;
+	return (3.14*r*r);
 }
 
 float squareArea(float l)
@@ -35,7 +37,7 @@ float rectangleArea(float l , float w)
 
 float circlePerimetre(float r)
 {
-	return 2*3.14*r;
+	return 2.0*3.14*r;
 }
 
 float squarePerimetre(float l)
@@ -55,6 +57,8 @@ int main()
 	char ch;
 	float l , w , r , area , perimetre;
 	
+	label:
+		
 	cout<<"-----------------"<<endl;
 	cout<<"Press a chracter: "<<endl;
 	cout<<"s for square"<<endl;
@@ -68,9 +72,23 @@ int main()
 	{
 		case 's':
 			
-			cout<<"Enter the length of its side: ";
-			
-			cin>>l;
+				do
+				{
+					cout<<"Enter length of Square: ";
+					cin>>l;
+					
+					if(cin.fail())
+					{
+						cin.clear();
+						cin.ignore(numeric_limits<streamsize>::max(), '\n');
+						cout<<"Invalid\aInput"<<endl<<endl;
+						continue;
+					}
+					
+					else 
+					break;
+					
+				}while(true);
 			
 			area=squareArea(l);
 			
@@ -80,13 +98,41 @@ int main()
 			
 		case 'r':
 			
-			cout<<"Enter its length: ";
+				do
+				{
+					cout<<"Enter length of rectangle: ";
+					cin>>l;
+					
+					if(cin.fail())
+					{
+						cin.clear();
+						cin.ignore(numeric_limits<streamsize>::max(), '\n');
+						cout<<"Invalid\aInput"<<endl<<endl;
+						continue;
+					}
+					
+					else 
+					break;
+					
+				}while(true);
 			
-			cin>>l;
-			
-			cout<<"Enter its width: ";
-			
-			cin>>w;
+				do
+				{
+					cout<<"Enter width of rectangle: ";
+					cin>>w;
+					
+					if(cin.fail())
+					{
+						cin.clear();
+						cin.ignore(numeric_limits<streamsize>::max(), '\n');
+						cout<<"Invalid\aInput"<<endl<<endl;
+						continue;
+					}
+					
+					else 
+					break;
+					
+				}while(true);
 			
 			area=rectangleArea(l , w);
 			
@@ -96,9 +142,23 @@ int main()
 			
 		case 'c':
 			
-			cout<<"Enter its radius: ";
-			
-			cin>>r;
+				do
+				{
+					cout<<"Enter radius of circle: ";
+					cin>>r;
+					
+					if(cin.fail())
+					{
+						cin.clear();
+						cin.ignore(numeric_limits<streamsize>::max(), '\n');
+						cout<<"Invalid\aInput"<<endl<<endl;
+						continue;
+					}
+					
+					else 
+					break;
+					
+				}while(true);
 			
 			area=circleArea(r);
 			
@@ -108,7 +168,9 @@ int main()
 			
 		default:
 			
-			cout<<"invalid input.......Exiting.........."<<endl;
+			system("cls");
+			cout<<"invalid \ainput , try again"<<endl<<endl;
+			goto label;
 					
 	}
 	
