@@ -13,6 +13,7 @@ Sum of even numbers: 12
 
 #include<iostream>
 #include<iomanip>
+#include<limits>
 
 using namespace std;
 
@@ -20,8 +21,24 @@ int main()
 {
 	int num , oddSum=0 , evenSum=0 , i=1;
 	
-	cout<<"Enter an integer: ";
-	cin>>num;
+	do
+	{
+		cout<<"Enter an integer: ";
+		cin>>num;
+		
+		if(cin.fail())
+		{
+			cout<<"Invalid \aInput"<<endl<<endl;
+			cin.clear();
+			cin.ignore(numeric_limits<streamsize>::max(), '\n');
+			
+			continue;
+		}
+		
+		else
+		break;
+	}while(true);
+	
 	
 	
 	cout<<"Odd number less than or equal to "<<num<<" are: ";
