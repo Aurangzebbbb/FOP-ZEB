@@ -28,13 +28,37 @@ int main()
 	
 	char ch;
 	
-	cout<<"Enter the expression to be evaluated in the format  a + b  and press enter"<<endl;
+	do
+	{
+		cout<<"Enter the expression to be evaluated in the format  a + b (+ - * / %)  and press enter"<<endl;
 	
-	cin>>a>>ch>>b;
+		cin>>a>>ch>>b;
+		
+		if(cin.fail())
+		{
+			cout<<"Invalid operands, \a Rewrite expression to evaluate"<<endl<<endl;
+			
+			cin.clear();
+			cin.ignore();
+			continue;
+		}
+		
+		else if(ch!='+' && ch!='-' && ch!='*' && ch!='/' && ch!='%')
+		{
+			cout<<"Invalid operation character \a , try again"<<endl<<endl;
+			continue;
+		}
+		
+		else
+		break;
+		
+	}while(true);
 	
 	switch(ch)
 	{
 		 case '+':
+
+		 	system("cls");
 		
 			cout<<a<<ch<<b<<" =  "<<a+b;
 			
@@ -42,24 +66,32 @@ int main()
 			
 			
 		case '-':
+
+			system("cls");
 		
 			cout<<a<<ch<<b<<" =  "<<a-b;
 			
 			break;
 			
 		case '*':
+
+			system("cls");
 		
 			cout<<a<<ch<<b<<" =  "<<a*b;
 			
 			break;
 			
 		case '/':
+
+			system("cls");
 		
 			cout<<a<<ch<<b<<" =  "<<a/b;
 			
 			break;
 			
 		case '%':
+
+			system("cls");
 		
 			cout<<a<<ch<<b<<" =  "<<a%b;
 			
