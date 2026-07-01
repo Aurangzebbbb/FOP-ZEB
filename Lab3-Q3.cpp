@@ -33,6 +33,7 @@ Enter the Down Payment in rupees: 300000
 
 #include<iostream>
 #include<iomanip>
+#include<limits>
 
 using namespace std;
 
@@ -43,14 +44,57 @@ int main()
 	int installMonths;
 
 	
-	cout<<"Enter vehicle price in rupees: ";
-	cin>>vPrice;
+	do
+	{
+		cout<<"Enter vehicle price in rupees: ";
+		cin>>vPrice;
+		
+		if(cin.fail())
+		{
+			cin.clear();
+			cin.ignore(numeric_limits<streamsize>::max(), '\n');
+			cout<<"Invalid\aInput"<<endl<<endl;
+			continue;
+		}
+		
+		else 
+		break;
+		
+	}while(true);
 	
-	cout<<"Enter down payment in rupees: ";
-	cin>>dPayment;
+	do
+	{
+		cout<<"Enter down payment in rupees: ";
+		cin>>dPayment;
+		
+		if(cin.fail())
+		{
+			cout<<"Invalid\aInput"<<endl<<endl;
+			cin.clear();
+			cin.ignore(numeric_limits<streamsize>::max(), '\n');
+			continue;
+		}
+		
+		else
+		break;
+		
+	}while(true);
 	
-	cout<<"For how many months, do you want to lease the car  (1-60): ";
-	cin>>installMonths;
+	do
+	{
+		cout<<"For how many months, do you want to lease the car  (1-60): ";
+		cin>>installMonths;
+		
+		if(installMonths<1 || installMonths>60)
+		{
+			cout<<"Invalid\aInput"<<endl<<endl;
+			continue;
+		}
+		
+		else
+		break;
+		
+	}while(true);
 	
 	payable= vPrice-dPayment;
 	
