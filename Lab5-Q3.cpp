@@ -20,6 +20,7 @@ int power(int n , int p)
 
 #include<iostream>
 #include<iomanip>
+#include<limits>
 
 using namespace std;
 
@@ -27,8 +28,24 @@ int main()
 {
 	int n , sum=0;
 	
-	cout<<"Enter an integer: ";
-	cin>>n;
+	do
+	{
+		cout<<"Enter an integer: ";
+		cin>>n;
+		
+		if(cin.fail())
+		{
+			cout<<"Invalid \aInput"<<endl<<endl;
+			cin.clear();
+			cin.ignore(numeric_limits<streamsize>::max(), '\n');
+			
+			continue;
+		}
+		
+		else
+		break;
+	}while(true);
+	
 
 	for(int i=1 ; i<=n ; i++)
 	{
