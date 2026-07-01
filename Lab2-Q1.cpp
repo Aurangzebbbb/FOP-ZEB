@@ -16,6 +16,7 @@
 
 #include<iostream>
 #include<iomanip>
+#include<limits>
 
 using namespace std;
 
@@ -23,9 +24,41 @@ int main()
 {
 	int a , b;
 	
-	cout<<"Enter two numbers a and b , press enter after entering each: ";
+	do{
+		cout<<"Enter first integer a: ";
+		cin>>a;
+
+		if(cin.fail())
+		{
+			cin.clear();
+			cin.ignore();
+			cout<<"invalid input \a , Try again......"<<endl<<endl;
+			continue;
+		}
+
+		else
+		break;
+
+	}while(true);
+
+	do{
+		cout<<"Enter Second integer b: ";
+		cin>>b;
+
+		if(cin.fail())
+		{
+			cin.clear();
+			cin.ignore();
+			cout<<"invalid input \a , Try again......"<<endl<<endl;
+			continue;
+		}
+
+		else
+		break;
+
+	}while(true);
+
 	
-	cin>>a>>b;
 	
 	cout<<"1. (a+b)^2 = "<< a*a + b*b + 2*a*b<<endl<<endl;
 	
