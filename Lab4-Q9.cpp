@@ -9,6 +9,7 @@ Enter the second number: 45
 */
 
 #include<iostream>
+#include<limits>
 
 using namespace std;
 
@@ -16,11 +17,43 @@ int main()
 {
 	int num1 , num2 , gcd;
 	
-	cout<<"Enter first number: ";
-	cin>>num1;
+	do
+	{
+		cout<<"Enter first integer: ";
+		cin>>num1;
+		
+		if(cin.fail())
+		{
+			cout<<"Invalid \aInput"<<endl<<endl;
+			cin.clear();
+			cin.ignore(numeric_limits<streamsize>::max(), '\n');
+			
+			continue;
+		}
+		
+		else
+		break;
+	}while(true);
 	
-	cout<<"Enter second number: ";
-	cin>>num2;
+	
+	do
+	{
+		cout<<"Enter second integer: ";
+		cin>>num2;
+		
+		if(cin.fail())
+		{
+			cout<<"Invalid \aInput"<<endl<<endl;
+			cin.clear();
+			cin.ignore(numeric_limits<streamsize>::max(), '\n');
+			
+			continue;
+		}
+		
+		else
+		break;
+	}while(true);
+	
 	
 	for(int i=1 ; i<=num1/2 || i<=num2/2 ; i++)
 	{
