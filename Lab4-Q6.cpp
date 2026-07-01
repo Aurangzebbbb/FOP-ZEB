@@ -11,6 +11,7 @@ Enter any float value: 2.5
 */
 
 #include<iostream>
+#include<limits>
 
 using namespace std;
 
@@ -18,8 +19,24 @@ int main()
 {
 	float num;
 	
-	cout<<"Enter a number: ";
-	cin>>num;
+	do
+	{
+		cout<<"Enter an integer: ";
+		cin>>num;
+		
+		if(cin.fail())
+		{
+			cout<<"Invalid \aInput"<<endl<<endl;
+			cin.clear();
+			cin.ignore(numeric_limits<streamsize>::max(), '\n');
+			
+			continue;
+		}
+		
+		else
+		break;
+	}while(true);
+	
 	
 	cout<<num<<endl;
 	
