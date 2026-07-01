@@ -19,6 +19,7 @@ Enter the arithmetic expression to be evaluated:
 
 #include<iostream>
 #include<iomanip>
+#include<cstdlib>
 
 using namespace std;
 
@@ -28,39 +29,61 @@ int main()
 	
 	char ch;
 	
-	cout<<"Enter the expression to be evaluated in the format  a + b  and press enter"<<endl;
+	do
+	{
+		cout<<"Enter the expression to be evaluated in the format  a + b (+ - * / %)  and press enter"<<endl;
 	
-	cin>>a>>ch>>b;
+		cin>>a>>ch>>b;
+		
+		if(cin.fail())
+		{
+			cout<<"Invalid operands, \a Rewrite expression to evaluate"<<endl<<endl;
+			
+			cin.clear();
+			cin.ignore();
+			continue;
+		}
+		
+		else if(ch!='+' && ch!='-' && ch!='*' && ch!='/' && ch!='%')
+		{
+			cout<<"Invalid operation entered \a , try again"<<endl<<endl;
+			continue;
+		}
+		
+		else
+		break;
+		
+	}while(true);
+	
 	
 	if(ch == '+')
 	{
+		system("cls");
 		cout<<a<<ch<<b<<" =  "<<a+b;
 	}
 	
 	else if(ch == '-')
 	{
+		system("cls");
 		cout<<a<<ch<<b<<" =  "<<a-b;
 	}
 	
 	else if(ch == '*')
 	{
+		system("cls");
 		cout<<a<<ch<<b<<" =  "<<a*b;
 	}
 	
 	else if(ch == '/')
 	{
+		system("cls");
 		cout<<a<<ch<<b<<" =  "<<a/b;
 	}
 	
 	else if(ch == '%')
 	{
+		system("cls");
 		cout<<a<<ch<<b<<" =  "<<a%b;
-	}
-	
-	else
-	{
-		cout<<"invalid operation"<<endl<<endl;
-		cout<<"exiting..............."<<endl;
 	}
 	
 	return 0;
