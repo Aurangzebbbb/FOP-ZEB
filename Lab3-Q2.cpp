@@ -39,7 +39,7 @@ int main()
 			cout<<"Invalid operands, \a Rewrite expression to evaluate"<<endl<<endl;
 			
 			cin.clear();
-			cin.ignore();
+			cin.ignore(numeric_limits<streamsize>::max(), '\n');
 			continue;
 		}
 		
