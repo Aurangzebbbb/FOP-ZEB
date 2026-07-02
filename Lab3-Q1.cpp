@@ -20,6 +20,7 @@ Enter the arithmetic expression to be evaluated:
 #include<iostream>
 #include<iomanip>
 #include<cstdlib>
+#include<limits>
 
 using namespace std;
 
@@ -40,7 +41,7 @@ int main()
 			cout<<"Invalid operands, \a Rewrite expression to evaluate"<<endl<<endl;
 			
 			cin.clear();
-			cin.ignore();
+			cin.ignore(numeric_limits<streamsize>::max(), '\n');
 			continue;
 		}
 		
