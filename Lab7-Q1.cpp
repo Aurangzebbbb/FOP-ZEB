@@ -29,6 +29,8 @@ The result is 3452
 
 #include<iostream>
 #include<iomanip>
+#include<conio.h>
+#include<limits>
 
 using namespace std;
 
@@ -64,8 +66,23 @@ int main()
 	
 	char c1 , c2 ;
 	
-	cout<<"Enter 4 integers(a b c d) : ";
-	cin>>a>>b>>c>>d;
+				do
+				{
+					cout<<"Enter 4 integers (a , b , c , d) ";
+					cin>>a>>b>>c>>d;
+					
+					if(cin.fail())
+					{
+						cin.clear();
+						cin.ignore(numeric_limits<streamsize>::max(), '\n');
+						cout<<"Invalid\aInput"<<endl<<endl;
+						continue;
+					}
+					
+					else 
+					break;
+					
+				}while(true);
 	
 	cout<<"Values of variables respectively before rotating: ";
 	cout<<a<<" "<<b<<" "<<c<<" "<<d<<endl;
@@ -84,26 +101,129 @@ int main()
 	cout<<"Rotating based on choice"<<endl;
 	cout<<"-------------------------"<<endl<<endl;
 
-	cout<<"Which way you wanna roatate number (l for left , r for right) : ";
-	cin>>c1;
+	do
+	{
+		cout<<"Which way you wanna roatate number ( press l for left , r for right) : ";
+		
+		c1=getche();
+		
+		if(c1!='l' && c1!='r')
+		{
+			cout<<endl<<"Invalid \aInput, TRy again..."<<endl<<endl;
+		}
+		
+		else break;
+		
+	}while(true);
 	
-	cout<<"How many times you wanna rotate this time: ";
-	cin>>shift1;
+	do
+	{
+		cout<<endl<<"How many times you wanna rotate: ";
+		cin>>shift1;
+		
+		if(cin.fail())
+		{
+			cin.clear();
+			cin.ignore(numeric_limits<streamsize>::max(), '\n');
+			cout<<"Invalid\aInput"<<endl<<endl;
+			continue;
+		}
+		
+		else 
+		break;
+		
+	}while(true);
 	
-	cout<<"Give constant you wanna add in each of digits of number: ";
-	cin>>add1;
+	do
+	{
+		cout<<"Give constant you wanna add in each of digits of number: ";
+		cin>>add1;
+		
+		if(cin.fail())
+		{
+			cin.clear();
+			cin.ignore(numeric_limits<streamsize>::max(), '\n');
+			cout<<"Invalid\aInput"<<endl<<endl;
+			continue;
+		}
+		
+		else 
+		break;
+		
+	}while(true);
 	
-	cout<<" (second rotation) Which way you wanna roatate number (l for left , r for right) : ";
-	cin>>c2;
+	do
+	{
+		cout<<" (second rotation) Which way you wanna roatate number (l for left , r for right) : ";
+		c2=getche();
+		
+		if(c2!='l' && c2!='r')
+		{
+			cout<<endl<<"Invalid \aInput, TRy again..."<<endl<<endl;
+		}
+		
+		else break;
+		
+	}while(true);
 	
-	cout<<"How many times you wanna rotate this time: ";
-	cin>>shift2;
 	
-	cout<<"Give constant you wanna add in each of digits of number: ";
-	cin>>add2;
+	do
+	{
+		cout<<endl<<"How many times you wanna rotate this time: ";
+		cin>>shift2;
+		
+		if(cin.fail())
+		{
+			cin.clear();
+			cin.ignore(numeric_limits<streamsize>::max(), '\n');
+			cout<<"Invalid\aInput"<<endl<<endl;
+			continue;
+		}
+		
+		else 
+		break;
+		
+	}while(true);
 	
-	cout<<"give the 4-digit number: ";
-	cin>>num;
+	do
+	{
+		cout<<"Give constant you wanna add in each of digits of number: ";
+		cin>>add2;
+		
+		if(cin.fail())
+		{
+			cin.clear();
+			cin.ignore(numeric_limits<streamsize>::max(), '\n');
+			cout<<"Invalid\aInput"<<endl<<endl;
+			continue;
+		}
+		
+		else 
+		break;
+		
+	}while(true);
+	
+	
+	do
+	{
+		cout<<"give the 4-digit number: ";
+		cin>>num;
+		
+		if(cin.fail())
+		{
+			cin.clear();
+			cin.ignore(numeric_limits<streamsize>::max(), '\n');
+			cout<<"Invalid\aInput"<<endl<<endl;
+			continue;
+		}
+		
+		else 
+		break;
+		
+	}while(true);
+	
+	
+	
 	
 	cout<<"here is the number you entered: "<<num<<endl;
 	
@@ -165,17 +285,6 @@ int main()
 		d+=add1;
 	}
 	
-	else
-	{
-		cout<<"wrong choice of first character..."<<endl;
-		
-		a+=add1;
-		b+=add1;
-		c+=add1;
-		d+=add1;
-		
-		cout<<"First shift is failed but constant is added , now move on to next choice"<<endl;
-	}
 	
 	if(c2=='l')
 	{
@@ -204,16 +313,6 @@ int main()
 		d+=add2;
 	}
 	
-	else
-	{
-		cout<<"Wrong choice for second character...."<<endl;
-		a+=add2;
-		b+=add2;
-		c+=add2;
-		d+=add2;
-		
-		cout<<"Second shift is failed but constant is added"<<endl<<endl;
-	}
 	
 	cout<<"-------------------"<<endl;	
 	cout<<"Resultant: "<<a<<b<<c<<d<<endl;
