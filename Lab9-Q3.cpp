@@ -2,6 +2,7 @@
 
 #include<iostream>
 #include<iomanip>
+#include<limits>
 
 using namespace std;
 
@@ -16,8 +17,26 @@ void input(int ar[][cols])
 	{
 		for(int j=0 ; j<cols ; j++)
 		{
-			cout<<"Enter value for row "<<i+1<<" and col "<<j+1<<" : ";
-			cin>>ar[i][j];
+			
+			do
+			{
+				cout<<"Enter value for row "<<i+1<<" and col "<<j+1<<" : ";
+				cin>>ar[i][j];
+				
+				if(cin.fail())
+				{
+					cin.clear();
+					cin.ignore(numeric_limits<streamsize>::max(), '\n');
+					cout<<"Invalid\aInput"<<endl<<endl;
+					continue;
+				}
+				
+				else 
+				break;
+				
+			}while(true);
+			
+			
 		}
 	}
 }
