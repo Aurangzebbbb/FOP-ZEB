@@ -11,6 +11,7 @@ Write a function in C++ language which takes two parameters as arguments,
 
 
 #include<iostream>
+#include<limits>
 
 using namespace std;
 
@@ -60,8 +61,25 @@ int main()
 	
 	for(int i=0 ; i<size ; i++)
 	{
-		cout<<"Enter value "<<i+1<<" : ";
-		cin>>ar[i];	
+		do
+		{
+			cout<<"Enter value "<<i+1<<" : ";
+			cin>>ar[i];	
+			
+			if(cin.fail())
+			{
+				cin.clear();
+				cin.ignore(numeric_limits<streamsize>::max(), '\n');
+				cout<<"Invalid\aInput"<<endl<<endl;
+				continue;
+			}
+			
+			else 
+			break;
+			
+		}while(true);
+		
+		
 	}
 	
 	cout<<"Normal array: ";
