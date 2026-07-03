@@ -15,6 +15,7 @@ Do Tasks 13.1 and 13.2 using pointers to structures. Your program
 #include<string>
 #include<iomanip>
 #include<conio.h>
+#include<limits>
 
 using namespace std;
 
@@ -50,10 +51,28 @@ struct Library
 	void add()
 	{
 		
-		cout<<"Enter library number: ";
-		cin>>books[size].num;
-		
-		cin.ignore();
+		do
+		{
+			cout<<"Enter library number: ";
+			cin>>books[size].num;	
+			
+			if(cin.fail())
+			{
+				cin.clear();
+				cin.ignore(numeric_limits<streamsize>::max(), '\n');
+				cout<<"Invalid\aInput"<<endl<<endl;
+				continue;
+			}
+			
+			else 
+			{
+				cin.ignore();
+				break;
+			}
+			
+			
+		}while(true);
+
 		
 		cout<<"Enter name of book: ";
 		getline(cin , books[size].name);
@@ -61,16 +80,74 @@ struct Library
 		cout<<"Enter author's name: ";
 		getline(cin , books[size].author);
 		
-		cout<<"Enter edition number: ";
-		cin>>books[size].edition;
+		do
+		{
+			cout<<"Enter Edition Number: ";
+			cin>>books[size].edition;	
+			
+			if(cin.fail())
+			{
+				cin.clear();
+				cin.ignore(numeric_limits<streamsize>::max(), '\n');
+				cout<<"Invalid\aInput"<<endl<<endl;
+				continue;
+			}
+			
+			else 
+			{
+				cin.ignore();
+				break;
+			}
+			
+			
+		}while(true);
+
 		
-		cout<<"Enter publishing date: ";
-		cin>>books[size].publish;
+		do
+		{
+			cout<<"Enter publishing date: ";
+			cin>>books[size].publish;	
+			
+			if(cin.fail())
+			{
+				cin.clear();
+				cin.ignore(numeric_limits<streamsize>::max(), '\n');
+				cout<<"Invalid\aInput"<<endl<<endl;
+				continue;
+			}
+			
+			else 
+			{
+				cin.ignore();
+				break;
+			}
+			
+			
+		}while(true);
+
 		
-		cout<<"Enter price: ";
-		cin>>books[size].price;
-		
-		cin.ignore();
+		do
+		{
+			cout<<"Enter price: ";
+			cin>>books[size].price;	
+			
+			if(cin.fail())
+			{
+				cin.clear();
+				cin.ignore(numeric_limits<streamsize>::max(), '\n');
+				cout<<"Invalid\aInput"<<endl<<endl;
+				continue;
+			}
+			
+			else 
+			{
+				cin.ignore();
+				break;
+			}
+			
+			
+		}while(true);
+
 		
 		size++;
 	}
@@ -78,6 +155,8 @@ struct Library
 	void sort()
 	{
 		char choice;
+		
+		label1:
 		
 		cout<<"Press..."<<endl;
 		cout<<"1 for sort by price from high to low"<<endl;
@@ -141,7 +220,8 @@ struct Library
 				break;
 				
 			default:
-				cout<<"Invalid \a input"<<endl;
+				cout<<endl<<"Invalid \a input"<<endl;
+				goto label1;
 				
 		}
 		
@@ -165,6 +245,8 @@ struct Library
 		int num , publish , edition , price , count=0;
 		string name , author ;
 		
+		label2:
+			
 		cout<<"press..."<<endl;
 		cout<<"1 for searching by Library number"<<endl;
 		cout<<"2 for searching by Book name"<<endl;
@@ -180,10 +262,29 @@ struct Library
 			
 			case '1':
 				
+				do
+				{
+					cout<<"Enter Library number: ";
+					cin>>num;	
+					
+					if(cin.fail())
+					{
+						cin.clear();
+						cin.ignore(numeric_limits<streamsize>::max(), '\n');
+						cout<<"Invalid\aInput"<<endl<<endl;
+						continue;
+					}
+					
+					else 
+					{
+						cin.ignore();
+						break;
+					}
+					
+					
+				}while(true);
 				
-				cout<<"Enter Library number: ";
-				cin>>num;
-				cin.ignore();
+				
 				
 				for(int i=0 ; i<size ; i++)
 				{
@@ -260,9 +361,29 @@ struct Library
 			case '4':
 				
 				
-				cout<<"Enter Edition number: ";
-				cin>>edition;
-				cin.ignore();
+				do
+				{
+					cout<<"Enter Edition number (integer): ";
+					cin>>edition;
+					
+					
+					if(cin.fail())
+					{
+						cin.clear();
+						cin.ignore(numeric_limits<streamsize>::max(), '\n');
+						cout<<"Invalid\aInput"<<endl<<endl;
+						continue;
+					}
+					
+					else 
+					{
+						cin.ignore();
+						break;
+					}
+					
+					
+				}while(true);
+				
 				
 				for(int i=0 ; i<size ; i++)
 				{
@@ -287,9 +408,29 @@ struct Library
 			case '5':
 				
 				
-				cout<<"Enter publishing year: ";
-				cin>>publish;
-				cin.ignore();
+				do
+				{
+					cout<<"Enter publishing year: ";
+					cin>>publish;
+					
+					
+					if(cin.fail())
+					{
+						cin.clear();
+						cin.ignore(numeric_limits<streamsize>::max(), '\n');
+						cout<<"Invalid\aInput"<<endl<<endl;
+						continue;
+					}
+					
+					else 
+					{
+						cin.ignore();
+						break;
+					}
+					
+					
+				}while(true);
+				
 				
 				for(int i=0 ; i<size ; i++)
 				{
@@ -314,9 +455,29 @@ struct Library
 			case '6':
 				
 				
-				cout<<"Enter Desired Price: ";
-				cin>>price;
-				cin.ignore();
+				do
+				{
+					cout<<"Enter Desired Price: ";
+					cin>>price;
+					
+					
+					if(cin.fail())
+					{
+						cin.clear();
+						cin.ignore(numeric_limits<streamsize>::max(), '\n');
+						cout<<"Invalid\aInput"<<endl<<endl;
+						continue;
+					}
+					
+					else 
+					{
+						cin.ignore();
+						break;
+					}
+					
+					
+				}while(true);
+				
 				
 				for(int i=0 ; i<size ; i++)
 				{
@@ -338,7 +499,8 @@ struct Library
 				break;
 				
 			default:
-				cout<<"invalid \a input"<<endl;
+				cout<<endl<<"invalid \a input"<<endl;
+				goto label2;
 			
 		}
 	}
@@ -356,8 +518,28 @@ struct Library
 		
 		sr=0;
 		
-		cout<<"Enter sr number of record you wanna delete...."<<endl;
-		cin>>srNum;
+		do
+		{
+			cout<<"Enter sr number of record you wanna delete...."<<endl;
+			cin>>srNum;
+			
+			if(cin.fail())
+			{
+				cin.clear();
+				cin.ignore(numeric_limits<streamsize>::max(), '\n');
+				cout<<"Invalid\aInput"<<endl<<endl;
+				continue;
+			}
+			
+			else
+			{
+				cin.ignore();
+				break;
+			} 
+			
+			
+		}while(true);
+		
 		
 		for(int i=srNum ; i<size ; i++)
 		{
@@ -390,7 +572,8 @@ int main()
 	
 	do
 	{
-		
+		label3:
+			
 		cout<<"Press.......your choice"<<endl;
 	
 	cout<<"1.  Add"<<endl;
@@ -440,7 +623,11 @@ int main()
 			sr=0;
 			cout<<endl;
 			
-			break;	
+			break;
+			
+		default:
+			cout<<endl<<"Invalid \aInput"<<endl;
+			goto label3;	
 		
 	}
 	
