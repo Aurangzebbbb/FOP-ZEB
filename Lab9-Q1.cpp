@@ -6,6 +6,7 @@ Write a  C++ program which declares two integer arrays of 5 indexes each,
   */
   
 #include<iostream>
+#include<limits>
 
 using namespace std;
 
@@ -18,8 +19,26 @@ int main()
 	
 	for(int i=0 ; i<5 ; i++)
 	{
-		cout<<"Enter vlaue "<<i+1<<" : ";
-		cin>>ar1[i];
+		
+		do
+		{
+			cout<<"Enter vlaue "<<i+1<<" : ";
+			cin>>ar1[i];
+			
+			if(cin.fail())
+			{
+				cin.clear();
+				cin.ignore(numeric_limits<streamsize>::max(), '\n');
+				cout<<"Invalid\aInput"<<endl<<endl;
+				continue;
+			}
+			
+			else 
+			break;
+			
+		}while(true);
+		
+		
 		ar2[i]=ar1[i];
 		
 	}
