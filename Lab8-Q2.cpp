@@ -6,6 +6,7 @@ Write a recursive function that displays integers less than or equal
 */
 
 #include<iostream>
+#include<limits>
 
 using namespace std;
 
@@ -27,8 +28,23 @@ int main()
 {
 	int num;
 	
-	cout<<"Enter an integer: ";
-	cin>>num;
+	do
+	{
+		cout<<"Enter an integer: ";
+		cin>>num;
+		
+		if(cin.fail())
+		{
+			cin.clear();
+			cin.ignore(numeric_limits<streamsize>::max(), '\n');
+			cout<<"Invalid\aInput"<<endl<<endl;
+			continue;
+		}
+		
+		else 
+		break;
+		
+	}while(true);
 	
 	cout<<endl;
 	
