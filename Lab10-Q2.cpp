@@ -1,5 +1,4 @@
-// TIC TAC TOE game
-
+//TIC TAC TOE GAME
 
 #include<iostream>
 #include<cstdlib>
@@ -182,8 +181,43 @@ int main()
 		count=0;
 		
 		do{
-			cout<<"First player turn: ";
+			
+			do{
+				
+				label1:
+			
+			cout<<"player 1 turn: ";
 			choice1=getch();
+			
+			if('X'==toupper(choice1) || 'O'==toupper(choice1))
+			{
+				
+				cout<<endl<<"Invalid \aInput"<<endl;
+				goto label1;
+			}
+			
+			else
+			{
+				for(int i=0 ;  i<3 ; i++)
+				{
+					for(int j=0 ; j<3 ; j++)
+					{
+						if(choice1==board[i][j])
+						{
+							goto out1;
+							
+						}
+					}
+				}
+			}
+			
+			cout<<endl<<"Invalid \aInput"<<endl;
+			
+			goto label1;
+			
+			}while(true);
+			
+			out1:
 			
 			count++;
 			
@@ -213,8 +247,41 @@ int main()
 				break;
 			}
 			
-			cout<<"Second player turn: ";
+			do{
+				
+				label2:
+			
+			cout<<" player 2 turn: ";
 			choice2=getch();
+			
+			if('X'==toupper(choice1) || 'O'==toupper(choice1))
+			{
+				
+				cout<<endl<<"Invalid \aInput"<<endl;
+				goto label2;
+			}
+			
+			else
+			{
+				for(int i=0 ;  i<3 ; i++)
+				{
+					for(int j=0 ; j<3 ; j++)
+					{
+						if(choice2==board[i][j])
+						{
+							goto out2;
+						}
+					}
+				}
+			}
+			
+			cout<<endl<<"Invalid \aInput"<<endl;
+			
+			goto label2;
+			
+			}while(true);
+			
+			out2:
 			
 			count++;
 			
